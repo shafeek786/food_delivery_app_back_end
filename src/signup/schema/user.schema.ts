@@ -20,7 +20,7 @@ export class User extends Document {
   mobile: number;
 
   @Prop()
-  propic: string;
+  profileImage: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

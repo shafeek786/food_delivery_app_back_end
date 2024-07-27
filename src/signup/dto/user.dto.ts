@@ -16,5 +16,5 @@ export class user {
   @IsNotEmpty()
   mobile: string;
 
-  propic: string;
+  profileImage: string;
 }

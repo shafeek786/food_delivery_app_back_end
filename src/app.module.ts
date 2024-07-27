@@ -9,6 +9,10 @@ import { AuthModule } from './auth/auth.module';
 import { DashboardController } from './dashboard/dashboard.controller';
 import { DashboardService } from './dashboard/dashboard.service';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { UserModule } from './user/user.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+import { WalletModule } from './wallet/wallet.module';
 
 @Module({
   imports: [
@@ -16,11 +20,17 @@ import { DashboardModule } from './dashboard/dashboard.module';
       envFilePath: '.env',
       isGlobal: true,
     }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'),
+      serveRoot: '/uploads',
+    }),
     MongooseModule.forRoot(process.env.DB_URI),
     SignupModule,
     LoginModule,
     AuthModule,
     DashboardModule,
+    UserModule,
+    WalletModule,
   ],
   controllers: [AppController, DashboardController],
   providers: [AppService, DashboardService],

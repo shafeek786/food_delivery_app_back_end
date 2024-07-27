@@ -18,7 +18,7 @@ export class LoginController {
 
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
-      maxAge: 15 * 60 * 1000,
+      maxAge: 1 * 60 * 1000,
     });
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
