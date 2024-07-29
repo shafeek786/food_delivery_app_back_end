@@ -13,6 +13,7 @@ import { UserModule } from './user/user.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { WalletModule } from './wallet/wallet.module';
+import { CartModule } from './cart/cart.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { WalletModule } from './wallet/wallet.module';
     DashboardModule,
     UserModule,
     WalletModule,
+    CartModule,
   ],
   controllers: [AppController, DashboardController],
   providers: [AppService, DashboardService],
